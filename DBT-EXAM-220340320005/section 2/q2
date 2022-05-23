@@ -1,0 +1,26 @@
+section 2 q2
+
+create table tempp(
+result boolean,
+REMARK varchar(25));
+
+
+delimiter //
+create function FUNC1(a int ,b int ,c int)
+returns boolean
+deterministic
+begin
+if (a+b>c and a+c>b and b+c>a) then
+return true;
+else 
+return false;
+end if;
+end;//
+delimiter ;
+
+delimiter //
+
+create procedure pqr()
+begin
+declare a int default 8;
+declare b int default 9;

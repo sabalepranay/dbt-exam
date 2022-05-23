@@ -1,0 +1,23 @@
+------------------- section 2 ------------------------------
+-- q1-----------------
+create table tempp(
+str1 varchar(20),
+str2 varchar(20),
+result varchar(20)
+);
+
+delimiter //
+create procedure PROC1()
+begin
+declare str1 varchar(20) default 'DAC';
+declare str2 varchar(20) default 'CDAC';
+if (instr (str1,str2)>0 or instr(str2,str1)>0) then
+  insert into tempp values(str1,str2,'existes');
+  else
+  insert into tempp values(str1,str2,'not existes');
+  end if;
+  end; //
+  delimiter ;
+  drop procedure PROC1;
+  call PROC1();
+  select * from tempp;
